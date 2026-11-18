@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-/* TEMPORARY LOGO. Replace this one component (or swap the markup for an
-   <img> of the real logo) and every page picks it up. */
+/* The M&C Cars logo (public/logo.png). The artwork is dark on white, so it
+   sits on a white tile and stays readable in both themes. */
 const Wrap = styled(Link)`
   display: inline-flex;
   align-items: center;
@@ -12,17 +12,14 @@ const Wrap = styled(Link)`
 
   .mark {
     flex: none;
-    width: 40px;
-    height: 40px;
+    padding: 2px 5px;
     border-radius: 12px;
-    background: var(--accent);
-    color: var(--accent-text);
+    background: #fff;
+    border: 1px solid var(--border);
     display: grid;
     place-items: center;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: -0.02em;
   }
+  .mark img { height: 42px; width: auto; max-width: none; display: block; }
 
   .words {
     display: flex;
@@ -48,7 +45,7 @@ const Wrap = styled(Link)`
 export default function Logo({ showWords = true }) {
   return (
     <Wrap to="/" aria-label="M&C Rental Cars home">
-      <span className="mark" aria-hidden="true">M&amp;C</span>
+      <span className="mark"><img src={`${import.meta.env.BASE_URL}logo.png`} alt="M&C Cars" width="62" height="46" /></span>
       {showWords && (
         <span className="words">
           <span className="name">M&amp;C Rental Cars</span>
